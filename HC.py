@@ -18,10 +18,6 @@ def orders():
     browser.maximize_window()
 
     browser.get("https://www.horchow.com/")
-# print(len(browser.find_elements_by_class_name("bx-button")))
-# if(length(browser.find_elements_by_class_name("bx-button")))
-# browser.find_elements_by_class_name("bx-close-xsvg")[1].click()
-# browser.switch_to_frame()
     cookie = {'name':'WPG', 'value':'true', 'domain':'www.horchow.com'}
     browser.add_cookie(cookie)
     search = browser.find_element_by_id("searchInput")
@@ -43,8 +39,8 @@ def orders():
     email = browser.find_element_by_class_name("emailAddField")
     password = browser.find_element_by_id("i-login-pass")
 
-    email.send_keys("ops@nmtest.info")
-    password.send_keys("Infy123+")
+    email.send_keys("*****")
+    password.send_keys("*****")
     browser.find_element_by_id("full-reg-checkout_msk").click()
 
     try:
@@ -66,7 +62,7 @@ def orders():
         print("No delivery number")
 
     cvv = browser.find_element_by_id("secCode")
-    cvv.send_keys("123")
+    cvv.send_keys("***")
 
     browser.find_element_by_class_name("placeorderBtn").click()
     time.sleep(5)
@@ -89,14 +85,14 @@ def orders():
     s = smtplib.SMTP('smtp.gmail.com', 587)
 
     s.starttls() 
-    s.login("hemachandarpalaparthi@gmail.com", "asdf.123") 
-    message = """From: Hemachandar <hemachandarpalaparthi@gmail.com>
-    To: Bhargava <Bhargava_Akula@infosys.com>
+    s.login("*******", "*******") #removed email and password
+    message = """From: Hemachandar <*******.com>
+    To: Bhargava <*******.com>
     Subject: Test horchow order
 
     Order Number <""" + hcOrder + """>placed at """ + timePresent + """
     """
-    s.sendmail("hemachandarpalaparthi@gmail.com", "Bhargava_Akula@infosys.com", message) 
+    s.sendmail("*******.com", "******.com", message) 
     s.quit() 
 
 t=0
